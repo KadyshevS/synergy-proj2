@@ -3,14 +3,16 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public bool Dead => _currentHealth <= 0f;
+    public float MaxHealth => _maxHealth;
+    public float CurrentHealth => _currentHealth;
 
+    [SerializeField] private float _maxHealth;
     [SerializeField] private Animator _animator;
-    [SerializeField] private float _startHealth;
     private float _currentHealth;
 
     void Start()
     {
-        _currentHealth = _startHealth;
+        _currentHealth = _maxHealth;
     }
 
     public void TakeDamage(float damage) 

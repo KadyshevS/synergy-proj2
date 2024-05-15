@@ -3,7 +3,7 @@ using UnityEngine;
 public class InputManager
 {
     public Vector2 KeyMovement => 
-        new Vector2(
+        new(
             Input.GetAxis("Horizontal"),
             Input.GetAxis("Vertical"));
 

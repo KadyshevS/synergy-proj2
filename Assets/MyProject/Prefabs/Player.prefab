@@ -1649,9 +1649,10 @@ GameObject:
   - component: {fileID: 8656886002612397952}
   - component: {fileID: 2023145936827790518}
   - component: {fileID: 1534378313146861972}
-  - component: {fileID: 8763789407933907016}
   - component: {fileID: 6913443547203698453}
   - component: {fileID: 8560229853333071805}
+  - component: {fileID: 8763789407933907016}
+  - component: {fileID: 5156224073965268255}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -1739,20 +1740,6 @@ MonoBehaviour:
   _mover: {fileID: 6913443547203698453}
   _attacker: {fileID: 8560229853333071805}
   _health: {fileID: 8763789407933907016}
---- !u!114 &8763789407933907016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2382929929694462329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a516be73891fd44bbe57764d079ca87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 8656886002612397952}
-  _startHealth: 100
 --- !u!114 &6913443547203698453
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1791,6 +1778,35 @@ MonoBehaviour:
   _attackColldown: 2
   _attackRangeOffset: {x: 0, y: 1.5, z: 1}
   _attackRange: 1
+--- !u!114 &8763789407933907016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2382929929694462329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a516be73891fd44bbe57764d079ca87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _animator: {fileID: 8656886002612397952}
+--- !u!114 &5156224073965268255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2382929929694462329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 687c7b299b75211449e90b0df60a8581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: {fileID: 8763789407933907016}
+  _slider: {fileID: 0}
+  _text: {fileID: 0}
 --- !u!1 &2401222313514685619
 GameObject:
   m_ObjectHideFlags: 0
@@ -5829,6 +5845,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ax_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8862592154208958829, guid: 43c7681c72d346940b8c9ba1fb59d096,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -5,20 +5,20 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Attacker     _attacker;
     [SerializeField] private NavMeshMover _mover;
     [SerializeField] private Health       _health;
+    [SerializeField] private float        _minDistanceToPlayer;
 
-    private Transform _playerTransform;
+    private Transform _player;
 
     void Start()
     {
-        _playerTransform = FindObjectOfType<Player>().transform;
+        _player = FindObjectOfType<Player>().transform;
     }
 
     void FixedUpdate()
     {
         if (_health.Dead) return;
-        Debug.Log(_attacker.MaskInRange);
 
-        if (_attacker.MaskInRange)
+        if (Vector3.Distance(transform.position, _player.position) <= _minDistanceToPlayer)
         {
             if (_attacker.CanAttack)
                 _attacker.Attack();
@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
         else
         {
             _attacker.CancelAttack();
-            _mover.MoveTo(_playerTransform.position);
+            _mover.MoveTo(_player.position);
         }
     }
 }
