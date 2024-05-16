@@ -27,7 +27,7 @@ public class InputMover : MonoBehaviour
 
         if (!_controller.isGrounded)
             _moveDirection += Physics.gravity;
-
+ 
         if (_moveDirection.magnitude != 0.0f)
             _controller.Move(_moveDirection * speed * 0.005f);
 

@@ -5,6 +5,8 @@ public class NavMeshMover : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent  _agent; 
     [SerializeField] private Animator      _animator;
+    
+    public float RemainingDistance => _agent.remainingDistance;
 
     public void MoveTo(Vector3 position, float velocity = 1f)
     {
