@@ -70,7 +70,6 @@ public class Enemy : MonoBehaviour
             
             if (_mover.RemainingDistance < 0.1f)
             {
-                Debug.Log("Reset");
                 ResetPatrolPoint();
                 ResetIdleTimer();
                 SetState(State.Idle);

@@ -69,6 +69,7 @@
     <Compile Include="Assets\MyProject\Scripts\UIManager.cs" />
     <Compile Include="Assets\MyProject\Scripts\InputMover.cs" />
     <Compile Include="Assets\MyProject\Scripts\Health.cs" />
+    <Compile Include="Assets\MyProject\Scripts\MainMenu.cs" />
     <Compile Include="Assets\MyProject\UI\Art\FantasyIconsPackFree\Demo\IconViewer.cs" />
     <Compile Include="Assets\AA_UniversalCharacter\Scripts\ModulesShaker.cs" />
     <Compile Include="Assets\MyProject\Scripts\NavMeshMover.cs" />
