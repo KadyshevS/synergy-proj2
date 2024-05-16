@@ -6,11 +6,12 @@ public class NavMeshMover : MonoBehaviour
     [SerializeField] private NavMeshAgent  _agent; 
     [SerializeField] private Animator      _animator;
 
-    public void MoveTo(Vector3 position)
+    public void MoveTo(Vector3 position, float velocity = 1f)
     {
         _agent.isStopped = false;
         _agent.SetDestination(position);
-        _animator.SetFloat("Vertical Speed", _agent.velocity.magnitude);
+        _agent.speed = 3.5f * velocity;
+        _animator.SetFloat("Vertical Speed", _agent.velocity.magnitude * velocity);
     }
     public void Stop()
     {

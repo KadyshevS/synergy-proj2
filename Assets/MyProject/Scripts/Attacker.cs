@@ -3,6 +3,7 @@ using UnityEngine;
 public class Attacker : MonoBehaviour
 {
     public bool CanAttack => _attackTimer <= 0f;
+    public bool IsAttacking => _attackingTimer > 0f;
     public bool MaskInRange =>
         Physics.CheckSphere(
             transform.position + 
@@ -15,34 +16,45 @@ public class Attacker : MonoBehaviour
     [SerializeField] private LayerMask  _attackMask;
     [SerializeField] private float      _damage;
     [SerializeField] private float      _attackColldown;
+    [SerializeField] private float      _attackDuration;
     [SerializeField] private Vector3    _attackRangeOffset;
     [SerializeField] private float      _attackRange;
 
+    private int        _attackIndex;
     private float      _attackTimer;
+    private float      _attackingTimer;
     private Collider[] _hits;
 
     private void ResetAttackTimer() => _attackTimer = _attackColldown;
+    private void ResetAttackingTimer() => _attackingTimer = _attackDuration * (_attackIndex + 1f);
 
     void Start()
     {
         ResetAttackTimer();
+        _attackTimer = -1f;
         _hits = new Collider[3];
     }
     void Update()
     {
         _attackTimer -= Time.deltaTime;
+        _attackingTimer -= Time.deltaTime;
+
+        if (_attackingTimer > 0f)
+            _animator.SetTrigger("Attacking");
+        else
+            _animator.SetBool("Attacking", false);
     }
     
     public void Attack()
     {
-        _animator.SetInteger("AttackIndex", Random.Range(0, 2));
-        _animator.SetTrigger("Attacking");
-        ResetAttackTimer();
-        AttackEnemies();
-    }
-    public void CancelAttack()
-    {
-        _animator.SetBool("Attacking", false);
+        if (_attackingTimer <= 0f)
+        {
+            _attackIndex = Random.Range(0, 2);
+            _animator.SetInteger("AttackIndex", _attackIndex);
+            ResetAttackTimer();
+            ResetAttackingTimer();
+            AttackEnemies();
+        }
     }
 
     void AttackEnemies()

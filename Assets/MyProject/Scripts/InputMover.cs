@@ -12,7 +12,6 @@ public class InputMover : MonoBehaviour
     public float speed;
     public float acceleration;
     public float deacceleration;
-    public float cameraRadius;
 
     void Start() => _input = new InputManager();
 

@@ -10,7 +10,8 @@ public class Player : MonoBehaviour
     {
         if (_health.Dead) return;
 
-        _mover.Move();
+        if (!_attacker.IsAttacking)
+            _mover.Move();
     }
     void Update()
     {
@@ -19,10 +20,6 @@ public class Player : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && _attacker.CanAttack)
         {
             _attacker.Attack();
-        }
-        else
-        {
-            _attacker.CancelAttack();
         }
     }
 }
